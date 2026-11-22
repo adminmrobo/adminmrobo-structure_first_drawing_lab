@@ -1,0 +1,914 @@
+{
+  "series_ko": "연구실 특별편 · 그리기와 렌더링",
+  "title_ko": "구조 먼저 보는 캐릭터 그리기 연구실",
+  "site_url": "https://adminmrobo.github.io/adminmrobo-structure_first_drawing_lab/",
+  "site_title": "구조 먼저 보는 캐릭터 그리기 연구실 — 픽셀 캐릭터를 실사까지",
+  "ontology": {
+    "pages": [
+      {
+        "path": "index.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "01_structure.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "02_light.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "03_folds.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "04_ai_learns.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "05_pixel_to_real.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "06_failure_lab.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "practice/index.html",
+        "kg": true,
+        "export": true
+      }
+    ],
+    "files": []
+  },
+  "i18n": {
+    "langs": [
+      "ko"
+    ],
+    "pages": {
+      "ko": 8
+    },
+    "readme_langs": [
+      "ko"
+    ]
+  },
+  "languages": [
+    "ko"
+  ],
+  "items": [
+    {
+      "id": "cover_index",
+      "role": "cover",
+      "path": "assets/img/cover_index.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C01_covers_A.md",
+      "style": "pixel",
+      "page": "index.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_01",
+      "role": "cover",
+      "path": "assets/img/cover_01.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C01_covers_A.md",
+      "style": "pixel",
+      "page": "01_structure.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_02",
+      "role": "cover",
+      "path": "assets/img/cover_02.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C01_covers_A.md",
+      "style": "pixel",
+      "page": "02_light.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_03",
+      "role": "cover",
+      "path": "assets/img/cover_03.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C01_covers_A.md",
+      "style": "pixel",
+      "page": "03_folds.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_04",
+      "role": "cover",
+      "path": "assets/img/cover_04.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C02_covers_B.md",
+      "style": "pixel",
+      "page": "04_ai_learns.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_05",
+      "role": "cover",
+      "path": "assets/img/cover_05.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C02_covers_B.md",
+      "style": "pixel",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_06",
+      "role": "cover",
+      "path": "assets/img/cover_06.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C02_covers_B.md",
+      "style": "pixel",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "cover_07",
+      "role": "cover",
+      "path": "assets/img/cover_07.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "doc",
+        "asst",
+        "fly",
+        "jupanbot"
+      ],
+      "robot": "jupanbot-v2",
+      "prompt_file": "docs/image_requests/prompts/C02_covers_B.md",
+      "style": "pixel",
+      "page": "practice/index.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_haru_anime",
+      "role": "scene",
+      "path": "assets/img/p5_haru_anime.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C03_anime_base.md",
+      "style": "anime",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_sia_anime",
+      "role": "scene",
+      "path": "assets/img/p5_sia_anime.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C03_anime_base.md",
+      "style": "anime",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_moa_anime",
+      "role": "scene",
+      "path": "assets/img/p5_moa_anime.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C03_anime_base.md",
+      "style": "anime",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_haru_pixel",
+      "role": "scene",
+      "path": "assets/img/p5_haru_pixel.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C04_pixel_full.md",
+      "style": "pixel",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_sia_pixel",
+      "role": "scene",
+      "path": "assets/img/p5_sia_pixel.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C04_pixel_full.md",
+      "style": "pixel",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_moa_pixel",
+      "role": "scene",
+      "path": "assets/img/p5_moa_pixel.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C04_pixel_full.md",
+      "style": "pixel",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_haru_semireal",
+      "role": "scene",
+      "path": "assets/img/p5_haru_semireal.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C05_semireal.md",
+      "style": "semi-real",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_sia_semireal",
+      "role": "scene",
+      "path": "assets/img/p5_sia_semireal.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C05_semireal.md",
+      "style": "semi-real",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_moa_semireal",
+      "role": "scene",
+      "path": "assets/img/p5_moa_semireal.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C05_semireal.md",
+      "style": "semi-real",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_haru_photo",
+      "role": "scene",
+      "path": "assets/img/p5_haru_photo.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C06_photoreal.md",
+      "style": "photo",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_sia_photo",
+      "role": "scene",
+      "path": "assets/img/p5_sia_photo.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C06_photoreal.md",
+      "style": "photo",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_moa_photo",
+      "role": "scene",
+      "path": "assets/img/p5_moa_photo.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C06_photoreal.md",
+      "style": "photo",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p1_haru_mannequin_turn",
+      "role": "scene",
+      "path": "assets/img/p1_haru_mannequin_turn.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C07_structure.md",
+      "style": "3D clay+anime",
+      "page": "01_structure.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p1_sia_construction",
+      "role": "scene",
+      "path": "assets/img/p1_sia_construction.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C07_structure.md",
+      "style": "sketch",
+      "page": "01_structure.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p1_moa_lineart_steps",
+      "role": "scene",
+      "path": "assets/img/p1_moa_lineart_steps.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C07_structure.md",
+      "style": "sketch→anime",
+      "page": "01_structure.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_haru_guides",
+      "role": "scene",
+      "path": "assets/img/p5_haru_guides.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C07_structure.md",
+      "style": "guide maps",
+      "page": "05_pixel_to_real.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p2_sia_light_compare",
+      "role": "scene",
+      "path": "assets/img/p2_sia_light_compare.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C08_light_shadow.md",
+      "style": "anime",
+      "page": "02_light.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p2_sia_shadow_types",
+      "role": "scene",
+      "path": "assets/img/p2_sia_shadow_types.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C08_light_shadow.md",
+      "style": "anime",
+      "page": "02_light.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p2_render_passes",
+      "role": "scene",
+      "path": "assets/img/p2_render_passes.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C08_light_shadow.md",
+      "style": "3D clay",
+      "page": "02_light.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p3_moa_fabric_compare",
+      "role": "scene",
+      "path": "assets/img/p3_moa_fabric_compare.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C08_light_shadow.md",
+      "style": "anime",
+      "page": "03_folds.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p4_haru_denoise_steps",
+      "role": "scene",
+      "path": "assets/img/p4_haru_denoise_steps.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C08_light_shadow.md",
+      "style": "noise→anime",
+      "page": "04_ai_learns.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p3_haru_arms_up",
+      "role": "scene",
+      "path": "assets/img/p3_haru_arms_up.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C09_wrinkles.md",
+      "style": "anime",
+      "page": "03_folds.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p3_sia_walk_wind",
+      "role": "scene",
+      "path": "assets/img/p3_sia_walk_wind.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C09_wrinkles.md",
+      "style": "anime",
+      "page": "03_folds.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p3_moa_sit_bench",
+      "role": "scene",
+      "path": "assets/img/p3_moa_sit_bench.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C09_wrinkles.md",
+      "style": "anime",
+      "page": "03_folds.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f1_haru_lost_buns",
+      "role": "fail",
+      "path": "assets/img/fail_f1_haru_lost_buns.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C10_fail_A.md",
+      "style": "anime(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f2_moa_mirrored",
+      "role": "fail",
+      "path": "assets/img/fail_f2_moa_mirrored.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C10_fail_A.md",
+      "style": "anime(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f3_sia_light_conflict",
+      "role": "fail",
+      "path": "assets/img/fail_f3_sia_light_conflict.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C10_fail_A.md",
+      "style": "anime(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f4_moa_floating_folds",
+      "role": "fail",
+      "path": "assets/img/fail_f4_moa_floating_folds.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C10_fail_A.md",
+      "style": "anime(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f5_haru_six_fingers",
+      "role": "fail",
+      "path": "assets/img/fail_f5_haru_six_fingers.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C11_fail_B.md",
+      "style": "anime(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f6_sia_other_person",
+      "role": "fail",
+      "path": "assets/img/fail_f6_sia_other_person.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C11_fail_B.md",
+      "style": "anime(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f7_moa_blocky_upscale",
+      "role": "fail",
+      "path": "assets/img/fail_f7_moa_blocky_upscale.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C11_fail_B.md",
+      "style": "pixel 확대(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "fail_f8_haru_style_split",
+      "role": "fail",
+      "path": "assets/img/fail_f8_haru_style_split.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/prompts/C11_fail_B.md",
+      "style": "pixel+photo(실패)",
+      "page": "06_failure_lab.html",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "og_index",
+      "role": "og",
+      "path": "assets/og/og_index.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_index",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_01",
+      "role": "og",
+      "path": "assets/og/og_01.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_01",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_02",
+      "role": "og",
+      "path": "assets/og/og_02.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_02",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_03",
+      "role": "og",
+      "path": "assets/og/og_03.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_03",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_04",
+      "role": "og",
+      "path": "assets/og/og_04.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_04",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_05",
+      "role": "og",
+      "path": "assets/og/og_05.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_05",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_06",
+      "role": "og",
+      "path": "assets/og/og_06.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_06",
+      "status": "placeholder"
+    },
+    {
+      "id": "og_07",
+      "role": "og",
+      "path": "assets/og/og_07.jpg",
+      "size": [
+        1200,
+        630
+      ],
+      "characters": [],
+      "robot": "none",
+      "source_of": "cover_07",
+      "status": "placeholder"
+    }
+  ],
+  "updated": "2026-11-22"
+}

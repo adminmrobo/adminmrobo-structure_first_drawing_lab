@@ -1,0 +1,251 @@
+{
+ "version": "1.0",
+ "made": "2026-11-24",
+ "via": "rehang-2026-11-24",
+ "domains": [
+  "art",
+  "genai"
+ ],
+ "note": "분야 뼈대 주제에 다시 걸기(ai-lab-retrofit 15장). links는 자동 후보이며 틀린 줄은 지우면 된다. 빌드 스크립트가 있는 저장소는 빌드 끝에 rehang.apply_overlay()가 이 파일을 적용한다.",
+ "topics": {
+  "lab:topic/character-sheet": {
+   "ko": "캐릭터 시트와 일관성",
+   "en": "Character sheets and consistency",
+   "domain": [
+    "art"
+   ],
+   "level": 2
+  },
+  "lab:topic/clothing-folds": {
+   "ko": "옷 주름",
+   "en": "Clothing folds",
+   "domain": [
+    "art"
+   ],
+   "level": 2
+  },
+  "lab:topic/conditioning-guidance": {
+   "ko": "조건과 가이던스",
+   "en": "Conditioning and guidance",
+   "domain": [
+    "genai"
+   ],
+   "level": 3
+  },
+  "lab:topic/diffusion": {
+   "ko": "확산 모델",
+   "en": "Diffusion models",
+   "domain": [
+    "ai",
+    "genai"
+   ],
+   "level": 4
+  },
+  "lab:topic/image-editing-inpainting": {
+   "ko": "이미지 편집·인페인팅",
+   "en": "Image editing and inpainting",
+   "domain": [
+    "genai"
+   ],
+   "level": 3
+  },
+  "lab:topic/latent-variable-models": {
+   "ko": "잠재 변수 모형",
+   "en": "Latent variable models",
+   "domain": [
+    "genai"
+   ],
+   "level": 2
+  },
+  "lab:topic/light-shadow": {
+   "ko": "빛과 그림자",
+   "en": "Light and shadow",
+   "domain": [
+    "art"
+   ],
+   "level": 2
+  },
+  "lab:topic/perspective": {
+   "ko": "원근",
+   "en": "Perspective",
+   "domain": [
+    "art"
+   ],
+   "level": 1
+  },
+  "lab:topic/prompt-for-images": {
+   "ko": "이미지 프롬프트 작성",
+   "en": "Prompting for images",
+   "domain": [
+    "genai"
+   ],
+   "level": 2
+  },
+  "lab:topic/simplify-forms": {
+   "ko": "도형으로 단순화",
+   "en": "Simplifying into basic forms",
+   "domain": [
+    "art"
+   ],
+   "level": 1
+  },
+  "lab:topic/style-consistency": {
+   "ko": "캐릭터·스타일 일관성",
+   "en": "Character and style consistency",
+   "domain": [
+    "genai"
+   ],
+   "level": 3
+  },
+  "lab:topic/style-transfer-drawing": {
+   "ko": "스타일 바꾸기",
+   "en": "Changing styles",
+   "domain": [
+    "art"
+   ],
+   "level": 2
+  },
+  "lab:topic/volume-planes": {
+   "ko": "면의 방향과 부피",
+   "en": "Planes and volume",
+   "domain": [
+    "art"
+   ],
+   "level": 2
+  }
+ },
+ "links": {
+  "lab:concept/bend-excess": {
+   "topic": "lab:topic/clothing-folds",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "굽힘과 남는 천"
+  },
+  "lab:concept/cfg": {
+   "topic": "lab:topic/conditioning-guidance",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "안내 강도"
+  },
+  "lab:concept/contour-rings": {
+   "topic": "lab:topic/volume-planes",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "원기둥의 고리선"
+  },
+  "lab:concept/diffusion": {
+   "topic": "lab:topic/diffusion",
+   "score": 3,
+   "why": "이름 같음",
+   "ko": "확산 모델"
+  },
+  "lab:concept/flow-tension": {
+   "topic": "lab:topic/clothing-folds",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "흐름과 꺾임(소재감)"
+  },
+  "lab:concept/fold-spots": {
+   "topic": "lab:topic/clothing-folds",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "주름이 생기는 자리"
+  },
+  "lab:concept/fold-types": {
+   "topic": "lab:topic/clothing-folds",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "주름 세 종류"
+  },
+  "lab:concept/foreshortening": {
+   "topic": "lab:topic/perspective",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "원기둥 위 간격의 원근"
+  },
+  "lab:concept/form-cast-shadow": {
+   "topic": "lab:topic/light-shadow",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "입체 그림자와 떨어지는 그림자"
+  },
+  "lab:concept/img2img-strength": {
+   "topic": "lab:topic/image-editing-inpainting",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "원본 반영 정도(강도)"
+  },
+  "lab:concept/island-shadow": {
+   "topic": "lab:topic/light-shadow",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "섬 그림자"
+  },
+  "lab:concept/lambert": {
+   "topic": "lab:topic/light-shadow",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "면의 방향과 밝기(cos)"
+  },
+  "lab:concept/latent-space": {
+   "topic": "lab:topic/latent-variable-models",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "잠재공간"
+  },
+  "lab:concept/penumbra": {
+   "topic": "lab:topic/light-shadow",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "그림자 흐림과 반사광"
+  },
+  "lab:concept/simplify-shapes": {
+   "topic": "lab:topic/simplify-forms",
+   "score": 2,
+   "why": "주제 이름이 개념 이름에 들어 있음",
+   "ko": "몸을 도형으로 단순화"
+  },
+  "lab:concept/turnaround": {
+   "topic": "lab:topic/character-sheet",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "돌려 보기(턴어라운드)"
+  },
+  "lab:method/guide-maps": {
+   "topic": "lab:topic/conditioning-guidance",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "포즈·선화·깊이 가이드"
+  },
+  "lab:method/identity-tokens": {
+   "topic": "lab:topic/style-consistency",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "캐릭터 고정 문장"
+  },
+  "lab:method/layers": {
+   "topic": "lab:topic/simplify-forms",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "도형→스케치→선화→색 레이어"
+  },
+  "lab:method/prompt-assembly": {
+   "topic": "lab:topic/prompt-for-images",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "프롬프트 조립"
+  },
+  "lab:method/style-transfer": {
+   "topic": "lab:topic/style-transfer-drawing",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "화풍 바꾸기"
+  }
+ },
+ "retag": {
+  "from": [],
+  "to": [
+   "art"
+  ]
+ }
+}

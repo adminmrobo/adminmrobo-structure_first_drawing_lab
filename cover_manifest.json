@@ -923,7 +923,7 @@
       "style": "anime/semireal",
       "page": "01_structure.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p1_try_step2",
@@ -941,7 +941,7 @@
       "style": "anime/semireal",
       "page": "01_structure.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p2_try_left",
@@ -959,7 +959,7 @@
       "style": "anime/semireal",
       "page": "02_light.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p2_try_back",
@@ -977,7 +977,7 @@
       "style": "anime/semireal",
       "page": "02_light.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p3_try_still",
@@ -995,7 +995,7 @@
       "style": "anime/semireal",
       "page": "03_folds.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p3_try_wind",
@@ -1013,7 +1013,7 @@
       "style": "anime/semireal",
       "page": "03_folds.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p5_try_assembled",
@@ -1031,7 +1031,7 @@
       "style": "anime/semireal",
       "page": "05_pixel_to_real.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p4_try_name_only",
@@ -1049,7 +1049,7 @@
       "style": "anime/semireal",
       "page": "04_ai_learns.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p4_try_features",
@@ -1067,7 +1067,7 @@
       "style": "anime/semireal",
       "page": "04_ai_learns.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p6_try_fix_f3",
@@ -1085,7 +1085,7 @@
       "style": "anime/semireal",
       "page": "06_failure_lab.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p6_try_fix_f4",
@@ -1103,7 +1103,7 @@
       "style": "anime/semireal",
       "page": "06_failure_lab.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     },
     {
       "id": "p5_try_group",
@@ -1121,7 +1121,7 @@
       "style": "anime/semireal",
       "page": "05_pixel_to_real.html#try",
       "source_of": null,
-      "status": "requested"
+      "status": "done"
     }
   ],
   "updated": "2026-11-23"

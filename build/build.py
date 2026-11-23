@@ -182,8 +182,9 @@ def tryit(no, pre=""):
     steps = ""
     for st in T["steps"]:
         steps += (f'<div class="trystep"><h3>{E(st["label"])}</h3><p>{E(st["note"])} <span class="chip">첨부: {E(st["attach"])}</span></p>'
-                  f'<div class="trygrid">{art(st["key"], st["alt"], st["ar"], "이 프롬프트로 실제로 만든 첫 결과", pre=pre, cls="tall" if st["ar"]=="2/3" else "")}'
-                  f'<div class="promptbox"><b>프롬프트 (영어로 넣습니다)</b><pre>{E(st["prompt"])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span></div></div></div>')
+                  f'<div class="trygrid{" wide" if st["ar"]=="16/9" else ""}">{art(st["key"], st["alt"], st["ar"], "이 프롬프트로 실제로 만든 첫 결과", pre=pre, cls="tall" if st["ar"]=="2/3" else "")}<div>'
+                  + (f'<div class="box" style="margin:0 0 10px"><span class="chip">결과 점검</span>{E(st["result"])}</div>' if st.get("result") and has_img(st["key"]) else "")
+                  + f'<div class="promptbox" style="margin:0"><b>프롬프트 (영어로 넣습니다)</b><pre>{E(st["prompt"])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span></div></div></div></div>')
     checks = "".join(f'<li><label><input type="checkbox"> {E(c)}</label></li>' for c in T["check"])
     return f"""<section class="room" id="try"><div class="wrap"><div class="roomno">{no}부 · 직접 만들어 보기</div>
 <h2>프롬프트로 직접 만들어 보기 — {E(T['title'])}</h2><p class="muted">{E(T['goal'])}</p>

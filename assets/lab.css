@@ -244,3 +244,4 @@ nav.top .i18n-pick select{max-width:34vw}
 @media (max-width:760px){.trygrid{grid-template-columns:1fr}.trygrid .art.tall{max-width:360px}}
 .trycheck li label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
 .trycheck .missions li::before{content:none}
+.trygrid.wide{grid-template-columns:1fr}

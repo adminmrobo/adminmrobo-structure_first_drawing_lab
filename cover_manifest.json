@@ -908,7 +908,221 @@
       "robot": "none",
       "source_of": "cover_07",
       "status": "from_cover"
+    },
+    {
+      "id": "p1_try_step1",
+      "role": "try",
+      "path": "assets/img/p1_try_step1.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C12_try.md",
+      "style": "anime/semireal",
+      "page": "01_structure.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p1_try_step2",
+      "role": "try",
+      "path": "assets/img/p1_try_step2.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C12_try.md",
+      "style": "anime/semireal",
+      "page": "01_structure.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p2_try_left",
+      "role": "try",
+      "path": "assets/img/p2_try_left.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C12_try.md",
+      "style": "anime/semireal",
+      "page": "02_light.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p2_try_back",
+      "role": "try",
+      "path": "assets/img/p2_try_back.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C12_try.md",
+      "style": "anime/semireal",
+      "page": "02_light.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p3_try_still",
+      "role": "try",
+      "path": "assets/img/p3_try_still.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C13_try.md",
+      "style": "anime/semireal",
+      "page": "03_folds.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p3_try_wind",
+      "role": "try",
+      "path": "assets/img/p3_try_wind.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C13_try.md",
+      "style": "anime/semireal",
+      "page": "03_folds.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_try_assembled",
+      "role": "try",
+      "path": "assets/img/p5_try_assembled.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C13_try.md",
+      "style": "anime/semireal",
+      "page": "05_pixel_to_real.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p4_try_name_only",
+      "role": "try",
+      "path": "assets/img/p4_try_name_only.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C14_try.md",
+      "style": "anime/semireal",
+      "page": "04_ai_learns.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p4_try_features",
+      "role": "try",
+      "path": "assets/img/p4_try_features.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C14_try.md",
+      "style": "anime/semireal",
+      "page": "04_ai_learns.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p6_try_fix_f3",
+      "role": "try",
+      "path": "assets/img/p6_try_fix_f3.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "sia"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C15_try.md",
+      "style": "anime/semireal",
+      "page": "06_failure_lab.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p6_try_fix_f4",
+      "role": "try",
+      "path": "assets/img/p6_try_fix_f4.webp",
+      "size": [
+        1024,
+        1536
+      ],
+      "characters": [
+        "moa"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C15_try.md",
+      "style": "anime/semireal",
+      "page": "06_failure_lab.html#try",
+      "source_of": null,
+      "status": "requested"
+    },
+    {
+      "id": "p5_try_group",
+      "role": "try",
+      "path": "assets/img/p5_try_group.webp",
+      "size": [
+        1600,
+        900
+      ],
+      "characters": [
+        "haru"
+      ],
+      "robot": "none",
+      "prompt_file": "docs/image_requests/round2/prompts/C16_try.md",
+      "style": "anime/semireal",
+      "page": "05_pixel_to_real.html#try",
+      "source_of": null,
+      "status": "requested"
     }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
 }

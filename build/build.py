@@ -6,6 +6,7 @@ import json, os, html, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from content_a import P1, P2, P3
 from content_b import P4, P5, P6, STYLES
+from content_try import TRY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VER = "v1.0"
@@ -92,7 +93,7 @@ def cover(key, cap, cast, pre=""):
 
 def three(a, b, c, abbr):
     dl = "".join(f"<dt>{E(x)}</dt><dd>{E(y)}</dd>" for x, y in abbr)
-    return f"""<div class="three"><h2>처음 오신 분께 — 이 페이지를 3줄로</h2><ul>
+    return f"""<div class="three"><h2>처음 오신 분께 — 세 줄로 먼저 보기</h2><ul>
 <li><b>무엇을</b>: {E(a)}</li><li><b>왜 중요한가</b>: {E(b)}</li><li><b>작업에서는</b>: {E(c)}</li></ul>
 <p>그림 실력·코드·수식을 몰라도 됩니다. 실험을 눌러 보며 따라오세요.</p>
 <details class="abbr"><summary>낱말·약어 풀이 (펼치기)</summary><dl>{dl}</dl></details></div>\n"""
@@ -146,7 +147,7 @@ No text, no letters, no logos, no watermark, no revealing clothing, not resembli
 
 def step(P, i, s):
     no = P["no"]
-    labels = ["문제", "앞 방법의 한계", "해법"]
+    labels = ["무엇이 문제인가", "그냥 하면 막히는 곳", "그래서 이렇게"]
     why = "".join(f"<li><b>{labels[k]}</b> — {E(x)}</li>" for k, x in enumerate(s["why"]))
     whybox = f'<div class="box why"><h4>왜 이 방법을 쓰나</h4><ol>{why}</ol><div class="easy"><b>쉽게 말하면</b> — {E(s["easy"])}</div></div>'
     calm = talk([("doctor", "e08", "여기서 한 번 멈춰도 괜찮아요. 식이 낯설면 건너뛰고 아래 실험부터 눌러 보세요. 숫자는 실험이 대신 계산해 줍니다.")])
@@ -170,8 +171,27 @@ def step(P, i, s):
 <div class="solve"><h4>풀이</h4>{solve}</div>
 {extra}{img}
 <div class="solve"><h4>AI 판단 코너 — 그대로 믿어도 될까?</h4><p>{E(s['ai'][0])}</p><details class="code"><summary>확인해 보기</summary><p>{E(s['ai'][1])}</p></details></div>
-<div class="limit"><b>이 단계의 한계</b> — {E(s['limit'])}</div>
+<div class="limit"><b>이 단계가 다루지 않은 것</b> — {E(s['limit'])}</div>
 {quiz(q[0], q[1], q[2], q[3], q[4])}
+</div></section>
+"""
+
+def tryit(no, pre=""):
+    T = TRY.get(no)
+    if not T: return ""
+    steps = ""
+    for st in T["steps"]:
+        steps += (f'<div class="trystep"><h3>{E(st["label"])}</h3><p>{E(st["note"])} <span class="chip">첨부: {E(st["attach"])}</span></p>'
+                  f'<div class="trygrid">{art(st["key"], st["alt"], st["ar"], "이 프롬프트로 실제로 만든 첫 결과", pre=pre, cls="tall" if st["ar"]=="2/3" else "")}'
+                  f'<div class="promptbox"><b>프롬프트 (영어로 넣습니다)</b><pre>{E(st["prompt"])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span></div></div></div>')
+    checks = "".join(f'<li><label><input type="checkbox"> {E(c)}</label></li>' for c in T["check"])
+    return f"""<section class="room" id="try"><div class="wrap"><div class="roomno">{no}부 · 직접 만들어 보기</div>
+<h2>프롬프트로 직접 만들어 보기 — {E(T['title'])}</h2><p class="muted">{E(T['goal'])}</p>
+<div class="box"><b>준비물</b> — 그림 생성 도구 하나(이 시리즈는 Genspark로 만들었습니다)와 캐릭터 설정 시트(<a href="{CHARREPO}">fruitfly-lab-expressions</a>의 refs 폴더). <b>순서</b> — 프롬프트 복사 → 설정 시트 첨부 → 생성 → 아래 점검표로 확인.</div>
+{talk([("doctor","e08","결과 그림은 이 문장을 실제로 넣어 나온 첫 결과다. 같은 문장이라도 여러분이 만든 결과는 조금씩 다를 수 있다. 다르게 나오면 점검표로 어디가 다른지 찾아보자."),("jupanbot","e16","복사해서 붙이기만 하면 되니 이번엔 제가 제일 빠르겠군요!")], pre)}
+{steps}
+<div class="panel trycheck"><div class="ph"><b>점검표</b><small>내가 만든 그림을 보며 맞는 항목에 표시하세요</small></div><ul class="missions" style="list-style:none;padding:0">{checks}</ul><div class="readout" aria-live="polite"></div></div>
+<div class="limit"><b>알아 둘 점</b> — {E(T['tip'])}</div>
 </div></section>
 """
 
@@ -185,7 +205,7 @@ def judge(J):
     tbl = "".join(f"<tr><td>{E(it)}</td><td>{J['a'][1][k]}</td><td>{J['b'][1][k]}</td></tr>" for k, it in enumerate(J["items"]))
     return f"""<section class="room" id="judge"><div class="wrap"><div class="roomno">평가단 채점</div><h2>{E(J['title'])}</h2>
 {talk(J['setup'])}
-<div class="judge"><h4>평가단 X1·X2·X3의 점수</h4>
+<div class="judge"><h4>평가단 X1·X2·X3이 매긴 점수</h4>
 <div class="score"><span></span><b>{E(J['a'][0])}</b><b>{E(J['b'][0])}</b>{rows}</div>
 <div class="tbl" style="margin-top:10px"><table><thead><tr><th>항목</th><th>{E(J['a'][0])}</th><th>{E(J['b'][0])}</th></tr></thead><tbody>{tbl}<tr><th>합계</th><th>{sa}</th><th>{sb}</th></tr></tbody></table></div>
 {talk(J['comments'])}</div>
@@ -211,7 +231,7 @@ def failcard(f):
 {art(f['key'], f['alt'], f['ar'])}
 <div><p><span class="chip">증상</span>{E(f['symptom'])}</p>
 {quiz(f['q'], f['opts'], f['ans'], f['ok'], f['no'])}
-<p><span class="chip">연결된 원리</span><a href="{f['link'][0]}">{E(f['link'][1])}</a></p>
+<p><span class="chip">다시 볼 원리</span><a href="{f['link'][0]}">{E(f['link'][1])}</a></p>
 <div class="promptbox"><b>고치는 프롬프트 조각</b><pre>{E(f['fix'])}</pre></div>{note}</div></div></div>"""
 
 # ---------------- 지식 색인
@@ -244,10 +264,16 @@ KG = [
  ("application/failure-cases", "Application", "실패 사례 8종", "Eight intentional failure cases", "06_failure_lab.html", "#fails", "번 사라짐·좌우 반전·빛 모순·떠 있는 천·손가락·다른 사람·뭉개진 네모·화풍 갈라짐"),
  ("open/famous-drift", "OpenQuestion", "유명 캐릭터 쏠림", "Drift toward well-known characters", "06_failure_lab.html", "#drift", "몰린 동네로 끌려가는 현상 — 고정 문장과 참고 그림으로 줄인다"),
  ("application/practice", "Application", "실전 연습장", "Practice simulator", "practice/index.html", "#studio", "조명·천·프롬프트·진단을 직접 운영해 본다"),
+ ("application/try-1", "Application", "직접 만들어 보기 — 도형 마네킹부터", "Prompt practice: mannequin first", "01_structure.html", "#try", "도형 마네킹을 먼저 만들고 그 그림을 참고로 캐릭터를 그리게 한다"),
+ ("application/try-2", "Application", "직접 만들어 보기 — 광원 문장 바꾸기", "Prompt practice: lighting sentences", "02_light.html", "#try", "광원과 그림자 방향을 함께 적어 두 장을 비교한다"),
+ ("application/try-3", "Application", "직접 만들어 보기 — 천 문장 바꾸기", "Prompt practice: fabric sentences", "03_folds.html", "#try", "접점·중력 문장과 바람 문장으로 두 장을 비교한다"),
+ ("application/try-4", "Application", "직접 만들어 보기 — 이름 대 특징 문장", "Prompt practice: name vs features", "04_ai_learns.html", "#try", "이름만 넣은 결과와 특징을 풀어 쓴 결과를 비교한다"),
+ ("application/try-5", "Application", "직접 만들어 보기 — 조립기 문장과 단체 그림", "Prompt practice: assembled prompt and group", "05_pixel_to_real.html", "#try", "조립기 문장을 그대로 넣고, 세 사람 고정값이 섞이지 않는지 본다"),
+ ("application/try-6", "Application", "직접 만들어 보기 — 고친 프롬프트로 다시", "Prompt practice: regenerate with fixes", "06_failure_lab.html", "#try", "고치는 프롬프트 조각으로 실패를 다시 만들어 점검표로 확인한다"),
  ("analogy/blocks", "Analogy", "블록 장난감", "Toy blocks", "01_structure.html", "#s1", "블록으로 만든 사람은 면의 방향이 손에 잡힌다"),
  ("analogy/mirror-fog", "Analogy", "김 서린 거울", "Fogged mirror", "04_ai_learns.html", "#s3", "닦을수록 큰 모양부터 또렷해진다"),
 ]
-KG_EDGES = [("concept/simplify-shapes","motivates","concept/contour-rings"),("concept/contour-rings","motivates","concept/turnaround"),("concept/turnaround","motivates","concept/foreshortening"),
+KG_EDGES = [("method/layers","usedIn","application/try-1"),("concept/form-cast-shadow","usedIn","application/try-2"),("concept/fold-types","usedIn","application/try-3"),("concept/latent-space","usedIn","application/try-4"),("method/prompt-assembly","usedIn","application/try-5"),("method/diagnosis","usedIn","application/try-6"),("concept/simplify-shapes","motivates","concept/contour-rings"),("concept/contour-rings","motivates","concept/turnaround"),("concept/turnaround","motivates","concept/foreshortening"),
  ("concept/foreshortening","motivates","method/layers"),("concept/simplify-shapes","motivates","concept/lambert"),("concept/lambert","motivates","concept/form-cast-shadow"),
  ("concept/form-cast-shadow","motivates","concept/island-shadow"),("concept/island-shadow","motivates","concept/penumbra"),("concept/penumbra","motivates","method/render-passes"),
  ("concept/fold-types","motivates","concept/fold-spots"),("concept/fold-spots","motivates","concept/flow-tension"),("concept/flow-tension","motivates","concept/bend-excess"),("concept/bend-excess","motivates","method/cloth-sim"),
@@ -281,7 +307,7 @@ def kg_block(page, pages):
     J = lambda o: json.dumps(o, ensure_ascii=False).replace("</", "<\\/")
     return f"""<section id="kg"><div class="wrap"><h2>지식 색인 — 이 페이지에서 찾아보기</h2>
 <p class="muted">이 페이지에 나온 개념·방법·비유·쓰임을 모았습니다. 검색하고, "설명 보러 가기"로 본문에 돌아갑니다.</p><div id="kg-mount"></div></div></section>
-<section id="export"><div class="wrap"><h2>온톨로지·서지 꾸러미 — 이 페이지의 지식을 가져가기</h2>
+<section id="export"><div class="wrap"><h2>온톨로지·서지 꾸러미 — 이 페이지 내용을 파일로 받기</h2>
 <p class="muted">지식 색인을 출처와 함께 파일로 내려받습니다. 서지 관리는 BibTeX·RIS, 온톨로지 편집은 Turtle, 그래프 도구는 CSV, 여러 페이지 합치기는 kg.json입니다.</p><div id="export-mount"></div></div></section>
 <script type="application/json" id="kg-raw">{J(raw)}</script>
 <script type="application/ld+json" id="kg-ld">{J(ld)}</script>
@@ -297,7 +323,7 @@ def footer(pre=""):
     return f"""<footer><div class="wrap">
 <h3>출처·참고</h3>
 <div class="tbl"><table><thead><tr><th>#</th><th>자료</th><th>이 시리즈에서 쓴 곳</th></tr></thead><tbody>{refs}</tbody></table></div>
-<h3>예시값·설명용 숫자</h3>
+<h3>숫자와 그림에 관한 안내</h3>
 <p>소매 반지름, 광원 크기, 강도 구간, 안내 강도 값, 평가단 점수는 모두 원리를 보이기 위한 예시값입니다. 실제 도구의 알맞은 값은 모델·도구마다 다릅니다.</p>
 <p>실사풍 그림은 캐릭터를 코스프레한 가상의 성인 모델로 만든 것이며 실존 인물이 아닙니다. 다른 작품의 캐릭터를 닮은 그림은 만들지 않습니다.</p>
 <p>캐릭터 이름·설정·그림은 저작권자 안상선의 허락 없이 사용할 수 없습니다. 캐릭터 그림: <a href="{CHARREPO}">fruitfly-lab-expressions</a>.</p>
@@ -313,7 +339,7 @@ def build_part(P):
     s = head(t, P["desc"], P["og"], P["file"])
     navl = [(f"#{x['id']}", f"{k+1}단계") for k, x in enumerate(P["steps"])]
     if P.get("fails"): navl += [("#fails", "실패 8종")]
-    navl += [("#judge", "평가"), ("#sum", "정리"), (P["next"][0], "다음 →")]
+    navl += [("#try", "만들어 보기"), ("#judge", "평가"), ("#sum", "정리"), (P["next"][0], "다음 →")]
     s += nav(navl)
     s += cover(P["cover_key"], P["cover_cap"], P["cover_cast"])
     s += f"""<header class="hero"><div class="wrap"><span class="kicker">{E(P['kicker'])}</span><h1>{E(P['title'])}</h1><p class="lead">{E(P['lead'])}</p>
@@ -327,8 +353,8 @@ def build_part(P):
         s += '<section class="room" id="fails"><div class="wrap"><div class="roomno">6부 · 2단계</div><h2>실패 8종 진단</h2><p class="muted">그림마다 증상을 보고 원인을 고른 뒤, 연결된 원리와 고치는 프롬프트 조각을 확인합니다.</p>'
         s += "".join(failcard(f) for f in P["fails"])
         d = P["drift"]
-        s += f'<div class="failcard" id="drift"><h3>{E(d["title"])}</h3>' + "".join(f"<p>{E(x)}</p>" for x in d["body"]) + '<p><span class="chip">연결된 원리</span><a href="04_ai_learns.html#s2">4부 2단계 잠재공간</a></p></div></div></section>'
-    s += judge(P["judge"]) + summary(P) + outro(P)
+        s += f'<div class="failcard" id="drift"><h3>{E(d["title"])}</h3>' + "".join(f"<p>{E(x)}</p>" for x in d["body"]) + '<p><span class="chip">다시 볼 원리</span><a href="04_ai_learns.html#s2">4부 2단계 잠재공간</a></p></div></div></section>'
+    s += tryit(P["no"]) + judge(P["judge"]) + summary(P) + outro(P)
     s += kg_block(P["file"].replace(".html", ""), [P["file"]])
     s += footer()
     open(os.path.join(ROOT, P["file"]), "w").write(s)
@@ -366,6 +392,7 @@ def build_index():
 <li><b>처음부터 차례로</b>(권장): 부마다 실험을 눌러 보며 20~30분, 전체 3~4시간입니다.</li>
 <li><b>그림 원리만</b>: 1~3부. AI 이야기 없이 손 그림의 원리만 봅니다.</li>
 <li><b>AI 그림만 급하다면</b>: 5부 → 6부 → 7부. 막히는 낱말은 각 단계의 링크로 1~3부를 되짚어 보세요.</li>
+<li>각 부 끝의 <b>프롬프트로 직접 만들어 보기</b>에서는 복사한 프롬프트로 그림 도구에서 실제 그림을 만들고, 점검표로 확인합니다. 페이지에는 같은 프롬프트로 실제로 만든 결과 그림이 함께 있습니다.</li>
 <li>각 부 끝의 <b>평가단 채점</b>은 이야기 속 예시 점수입니다. 확인 퀴즈와 실전 연습장 미션으로 스스로 점검하세요.</li></ul></div></div></section>
 <section id="parts"><div class="wrap"><h2>편 목록</h2>
 <p class="muted">모델은 하루·시아·모아, 화가는 주판봇과 초파리, 평가단은 X1·X2·X3, 해설은 박사입니다. 부마다 두 화가가 겨루고 평가단이 점수를 매깁니다.</p>
@@ -378,8 +405,8 @@ def build_index():
 <a class="card" href="06_failure_lab.html">{face("jupanbot","e20")}<span class="n">6부 · 의도적 실패 8종</span><h3>실패 사례 실험실</h3><p>증상 → 원인 → 원리 → 고치는 프롬프트. 진단 순서 점검표.</p></a>
 <a class="card" href="practice/index.html">{face("x2","e16")}<span class="n">7부 · 마지막 장</span><h3>실전 연습장</h3><p>촬영 스튜디오·의상실·프롬프트 공방·진단 데스크를 직접 운영합니다.</p></a>
 </div></div></section>
-<section id="map"><div class="wrap"><h2>큰 그림 — 앞 부의 한계가 다음 부의 이유</h2>{flow_strip()}
-<div class="tbl" style="margin-top:16px"><table><thead><tr><th>부</th><th>제목</th><th>앞 부의 한계 → 이 부가 필요한 이유</th><th>핵심</th></tr></thead><tbody>
+<section id="map"><div class="wrap"><h2>큰 그림 — 앞에서 막힌 곳을 다음 부에서 풉니다</h2>{flow_strip()}
+<div class="tbl" style="margin-top:16px"><table><thead><tr><th>부</th><th>제목</th><th>앞에서 막힌 곳 → 이 부에서 푸는 것</th><th>핵심</th></tr></thead><tbody>
 {''.join(f"<tr><td>{n}</td><td>{E(t)}</td><td>{E(a)}</td><td>{E(b)}</td></tr>" for n, t, a, b in FLOW)}</tbody></table></div>
 <p class="muted" style="margin-top:12px">기초 개념을 먼저 보고 싶다면: <a href="{RENDER}">AI 렌더링 연구실(비지도학습 → 렌더링 → DLSS)</a> · <a href="{FISH}">비지도학습 물고기 연구실</a></p></div></section>
 <section id="cast"><div class="wrap"><h2>등장인물</h2><div class="cast-grid">{''.join(f'<div class="who">{face(k, "e01" if k in ("haru","sia","moa") else "e13")}<b>{E(CH[k][0])}</b><span>{E(CH[k][1])}</span></div>' for k in ["doctor","haru","sia","moa","jupanbot","fruitfly","x1","x2","x3"])}</div></div></section>
@@ -431,14 +458,14 @@ def build_practice():
             '<label>캐릭터 <select name="who"><option value="">(고르기)</option><option value="haru">하루</option><option value="sia">시아</option><option value="moa">모아</option></select></label><label>자세 <select name="pose"><option value="">(고르기)</option><option value="hip">서서 한 손 허리</option><option value="up">두 팔 위로</option><option value="sit">벤치에 앉기</option><option value="walk">걷기</option></select></label><label>빛 <select name="light"><option value="">(고르기)</option><option value="ul">왼쪽 위</option><option value="ur">오른쪽 위</option><option value="below">아래에서</option><option value="back">뒤에서</option></select></label><label>소재 <select name="fab"><option value="none">(정하지 않음)</option><option value="crisp">빳빳한 천</option><option value="soft">부드러운 천</option></select></label><label>화풍 <select name="sty"><option value="">(고르기)</option><option value="pixel">픽셀</option><option value="anime">애니풍</option><option value="semireal">반실사</option><option value="photo">실사풍</option></select></label><label><input type="checkbox" name="neg"> 금지 목록</label>',
             ["점검표 6 / 6 채우기", "실사풍 + 금지 목록 함께 넣기", "모아로 바꿔도 '리본 왼쪽 귀 위'가 문장에 남는지 확인"],
             [("05_pixel_to_real.html#s1", "5부 1단계 고정 문장"), ("05_pixel_to_real.html#s5", "5부 5단계 조립")],
-            '<div class="promptbox"><b>조립된 프롬프트</b><pre aria-live="polite"></pre><button type="button" class="btn copy">복사하기</button></div>')
+            '<div class="promptbox"><b>조립된 프롬프트</b><pre aria-live="polite"></pre><button type="button" class="btn copy">복사하기</button><p class="hint" style="margin-top:8px"><b>실제로 만들어 보기</b> — ① 복사 ② 그림 도구에 붙이고 캐릭터 설정 시트를 첨부 ③ 결과를 <a href="#desk">진단 데스크</a>의 순서(구조 → 빛 → 천 → 고정값 → 강도·화풍)로 확인. 각 부 끝의 \'프롬프트로 직접 만들어 보기\'에 실제 결과 예시가 있습니다.</p></div>')
     s += sc("desk", "진단 데스크 — 원인 맞히기", "실패 그림의 증상이 하나씩 들어옵니다. 원인을 고르세요. 큰 것부터: 구조 → 빛 → 천 → 고정값 → 강도·화풍.",
             '<span class="hint">환경: 증상은 무작위로 들어옵니다.</span>',
             '<div style="width:100%"><p class="sym" style="font-weight:600"></p><div class="opts deskopts"></div></div>',
             ["3개 연속 정답", "8종 원인을 모두 한 번 이상 맞히기", "틀리지 않고 5개 맞히기"],
             [("06_failure_lab.html#s1", "6부 진단 순서"), ("06_failure_lab.html#fails", "6부 실패 8종")])
     s += f"""</div></section>
-<section id="wrap"><div class="wrap"><h2>마무리 — 네 작업장이 함께 묻는 질문</h2>
+<section id="wrap"><div class="wrap"><h2>마무리 — 네 작업장을 한 질문으로 묶으면</h2>
 <div class="box"><p>스튜디오에서 정한 빛의 방향은 공방의 프롬프트에서 '그림자 방향' 문장이 되고, 의상실에서 만든 주름은 '접점과 중력' 문장이 됩니다. 진단 데스크에서 틀린 원인은 대부분 앞의 세 곳 중 하나가 빠진 경우입니다. 결국 하나로 잇는 질문은 이것입니다: <b>"구조·빛·천을 먼저 정했는가, 그리고 그것을 말로 전했는가?"</b></p>
 <p class="hint">한계: 이 연습장의 조명·천 계산은 원리를 보이기 위해 크게 단순화했습니다. 숫자는 교육용 예시이며, 실제 그림 도구·렌더러의 값과 다릅니다.</p></div>
 <div class="next"><a href="{pre}06_failure_lab.html">← 6부 실패 사례 실험실</a><a href="{pre}index.html">목차로</a></div></div></section>

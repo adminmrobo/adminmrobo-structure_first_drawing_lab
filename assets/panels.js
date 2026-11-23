@@ -556,6 +556,8 @@ function kg(){var raw=document.getElementById('kg-raw');var mount=document.getEl
 
 function boot(){document.querySelectorAll('[data-panel]').forEach(function(h){var k=h.getAttribute('data-panel');if(P[k]){try{P[k](h);}catch(e){h.textContent='실험을 불러오지 못했습니다.';if(window.console)console.warn(k,e);}}});
   document.querySelectorAll('.quiz').forEach(quiz);kg();practice();
+  document.querySelectorAll('.copybtn').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.querySelector('pre').textContent;var hint=b.parentNode.querySelector('.hint');if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){hint.textContent='복사했습니다.';},function(){hint.textContent='복사가 막혔습니다. 직접 선택해 복사하세요.';});else hint.textContent='직접 선택해 복사하세요.';});});
+  document.querySelectorAll('.trycheck').forEach(function(p){var bs=p.querySelectorAll('input[type=checkbox]'),ro=p.querySelector('.readout');function u(){var n=[].filter.call(bs,function(x){return x.checked;}).length;ro.innerHTML='맞는 항목 <b>'+n+' / '+bs.length+'</b>'+(n===bs.length?' <span class="alert">모두 통과! 이 그림은 써도 됩니다.</span>':n?' — 체크하지 못한 항목이 고칠 곳입니다. 해당 단계를 다시 보세요.':'');bs.forEach(function(x){x.closest('li').classList.toggle('done',x.checked);});}bs.forEach(function(x){x.addEventListener('change',u);});u();});
   var pr=document.getElementById('prog');if(pr)window.addEventListener('scroll',function(){var d=document.documentElement;pr.style.width=(100*d.scrollTop/Math.max(1,d.scrollHeight-d.clientHeight))+'%';},{passive:true});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();

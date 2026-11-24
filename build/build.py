@@ -198,6 +198,15 @@ def tryit(no, pre=""):
 </div></section>
 """
 
+def retry_box(e, pre=""):
+    r = e.get("retry")
+    if not r or not has_img(e["key"]): return ""
+    rk = e["key"] + "_retry"
+    img = art(rk, r["alt"], e["ar"], "다시 시도한 결과 — 고친 문장을 같은 대화에 이어서 넣은 결과", pre=pre) if has_img(rk) else ""
+    act = f'<p style="margin:10px 0 0"><b>다시 해 보니</b> — {E(r["actual"])}</p>' if has_img(rk) else ""
+    return f"""<div class="promptbox retrybox"><b>다시 시도 — {E(r['how'])}</b><pre>{E(r['prompt'])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span>
+<div class="retrygrid">{img}<div>{act}</div></div></div>"""
+
 def exercises(no, pre=""):
     L = EX.get(no)
     if not L: return ""
@@ -215,6 +224,7 @@ def exercises(no, pre=""):
 <h4>순서</h4><ol>{steps}</ol>
 <h4>이렇게 보이면 성공</h4><ul>{exp}</ul>
 {'<div class="limit" style="background:#f3f8ff;border-color:#9bb8e0"><b>실제로 해 보니</b> — '+E(e['actual'])+'</div>' if has_img(e['key']) and e.get('actual') else ''}
+{retry_box(e, pre)}
 <div class="limit"><b>잘 안 될 때</b> — {md(e['trouble'])}</div>
 <p><span class="chip">다시 볼 원리</span><a href="{e['link'][0]}">{E(e['link'][1])}</a></p></div></div></div>"""
     return f"""<section class="room" id="ex"><div class="wrap"><div class="roomno">{no}부 · 연습 과제</div>

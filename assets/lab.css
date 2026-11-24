@@ -250,3 +250,5 @@ nav.top .i18n-pick select{max-width:34vw}
 .excard h4{margin:12px 0 4px}
 .excard ol,.excard ul{margin:4px 0;padding-left:22px}
 @media (max-width:760px){.exgrid{grid-template-columns:1fr}}
+
+.retrybox{margin-top:14px;border-color:#9bc9a8;background:#f4fbf6}.retrygrid{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:14px;align-items:start;margin-top:12px}.retrygrid:has(> :only-child){grid-template-columns:1fr}@media(max-width:560px){.retrygrid{grid-template-columns:1fr}}

@@ -1206,6 +1206,30 @@
    "status": "done",
    "request": "E05",
    "ratio": "16:9"
+  },
+  {
+   "file": "p1_ex2_stripes_retry",
+   "role": "exercise_retry",
+   "status": "done",
+   "request": "R4"
+  },
+  {
+   "file": "p3_ex2_pinch_retry",
+   "role": "exercise_retry",
+   "status": "done",
+   "request": "R4"
+  },
+  {
+   "file": "p5_ex1_photo_retry",
+   "role": "exercise_retry",
+   "status": "done",
+   "request": "R4"
+  },
+  {
+   "file": "p6_ex2_twolights_retry",
+   "role": "exercise_retry",
+   "status": "done",
+   "request": "R4"
   }
  ],
  "updated": "2026-11-23"

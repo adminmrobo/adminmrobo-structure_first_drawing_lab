@@ -7,6 +7,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content_a import P1, P2, P3
 from content_b import P4, P5, P6, STYLES
 from content_try import TRY
+from content_ex import EX
+import re as _re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VER = "v1.0"
@@ -196,6 +198,31 @@ def tryit(no, pre=""):
 </div></section>
 """
 
+def exercises(no, pre=""):
+    L = EX.get(no)
+    if not L: return ""
+    md = lambda t: _re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", E(t))
+    cards = ""
+    for i, e in enumerate(L, 1):
+        steps = "".join(f"<li>{md(x)}</li>" for x in e["steps"])
+        exp = "".join(f"<li>{E(x)}</li>" for x in e["expect"])
+        same = e["change"].startswith("Same image")
+        kind = "바꿀 문장 (출발 그림에 이어서 넣습니다)" if same else "새 대화에 넣을 문장"
+        cards += f"""<div class="failcard excard" id="ex{no}-{i}"><h3>연습 {no}-{i} · {E(e['title'])}</h3>
+<p>{E(e['why'])}</p>
+<div class="exgrid"><div><div class="artrow"{' style="grid-template-columns:1fr"' if e['ar']=='16/9' else ''}>{art(e['start'], '출발 그림 — 직접 만들어 보기에서 만든 그림', '2/3' if e['ar']=='2/3' else '16/9', '출발 그림', pre=pre)}{art(e['key'], e['alt'], e['ar'], '예상 결과 — 이 문장으로 실제로 만든 예시', pre=pre)}</div></div>
+<div><div class="promptbox" style="margin-top:0"><b>{kind}</b><pre>{E(e['change'])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span><p class="hint" style="margin:8px 0 0"><b>이 문장의 뜻</b> — {E(e['ko'])}</p></div>
+<h4>순서</h4><ol>{steps}</ol>
+<h4>이렇게 보이면 성공</h4><ul>{exp}</ul>
+<div class="limit"><b>잘 안 될 때</b> — {md(e['trouble'])}</div>
+<p><span class="chip">다시 볼 원리</span><a href="{e['link'][0]}">{E(e['link'][1])}</a></p></div></div></div>"""
+    return f"""<section class="room" id="ex"><div class="wrap"><div class="roomno">{no}부 · 연습 과제</div>
+<h2>연습 과제 — 원리 하나만 바꿔 보기</h2>
+<p class="muted">'직접 만들어 보기'에서 나온 그림을 출발 그림으로 삼아, 문장 하나로 원리 하나만 바꿉니다. 한 번에 하나만 바꿔야 무엇 때문에 달라졌는지 알 수 있습니다. 예상 결과 그림은 같은 문장으로 실제로 만든 예시이며, 여러분의 결과는 조금씩 다를 수 있습니다.</p>
+{talk([("doctor","e07","한 번에 두 가지를 바꾸면 무엇 때문에 달라졌는지 알 수 없다. 바꿀 문장은 하나만 넣자."),("fruitfly","e09","결과가 예상과 다르면 그게 더 좋은 공부야. 어디가 다른지 점검표로 찾아봐.")], pre)}
+{cards}</div></section>
+"""
+
 def judge(J):
     rows = ""
     for idx, item in enumerate(J["items"]):
@@ -271,10 +298,16 @@ KG = [
  ("application/try-4", "Application", "직접 만들어 보기 — 이름 대 특징 문장", "Prompt practice: name vs features", "04_ai_learns.html", "#try", "이름만 넣은 결과와 특징을 풀어 쓴 결과를 비교한다"),
  ("application/try-5", "Application", "직접 만들어 보기 — 조립기 문장과 단체 그림", "Prompt practice: assembled prompt and group", "05_pixel_to_real.html", "#try", "조립기 문장을 그대로 넣고, 세 사람 고정값이 섞이지 않는지 본다"),
  ("application/try-6", "Application", "직접 만들어 보기 — 고친 프롬프트로 다시", "Prompt practice: regenerate with fixes", "06_failure_lab.html", "#try", "고치는 프롬프트 조각으로 실패를 다시 만들어 점검표로 확인한다"),
+ ("application/ex-1", "Application", "1부 연습 과제", "Part 1 prompt exercises", "01_structure.html", "#ex", "출발 그림에서 문장 하나로 원리 하나만 바꿔 결과를 확인한다"),
+ ("application/ex-2", "Application", "2부 연습 과제", "Part 2 prompt exercises", "02_light.html", "#ex", "출발 그림에서 문장 하나로 원리 하나만 바꿔 결과를 확인한다"),
+ ("application/ex-3", "Application", "3부 연습 과제", "Part 3 prompt exercises", "03_folds.html", "#ex", "출발 그림에서 문장 하나로 원리 하나만 바꿔 결과를 확인한다"),
+ ("application/ex-4", "Application", "4부 연습 과제", "Part 4 prompt exercises", "04_ai_learns.html", "#ex", "출발 그림에서 문장 하나로 원리 하나만 바꿔 결과를 확인한다"),
+ ("application/ex-5", "Application", "5부 연습 과제", "Part 5 prompt exercises", "05_pixel_to_real.html", "#ex", "출발 그림에서 문장 하나로 원리 하나만 바꿔 결과를 확인한다"),
+ ("application/ex-6", "Application", "6부 연습 과제", "Part 6 prompt exercises", "06_failure_lab.html", "#ex", "출발 그림에서 문장 하나로 원리 하나만 바꿔 결과를 확인한다"),
  ("analogy/blocks", "Analogy", "블록 장난감", "Toy blocks", "01_structure.html", "#s1", "블록으로 만든 사람은 면의 방향이 손에 잡힌다"),
  ("analogy/mirror-fog", "Analogy", "김 서린 거울", "Fogged mirror", "04_ai_learns.html", "#s3", "닦을수록 큰 모양부터 또렷해진다"),
 ]
-KG_EDGES = [("method/layers","usedIn","application/try-1"),("concept/form-cast-shadow","usedIn","application/try-2"),("concept/fold-types","usedIn","application/try-3"),("concept/latent-space","usedIn","application/try-4"),("method/prompt-assembly","usedIn","application/try-5"),("method/diagnosis","usedIn","application/try-6"),("concept/simplify-shapes","motivates","concept/contour-rings"),("concept/contour-rings","motivates","concept/turnaround"),("concept/turnaround","motivates","concept/foreshortening"),
+KG_EDGES = [("application/try-1","motivates","application/ex-1"),("application/try-2","motivates","application/ex-2"),("application/try-3","motivates","application/ex-3"),("application/try-4","motivates","application/ex-4"),("application/try-5","motivates","application/ex-5"),("application/try-6","motivates","application/ex-6"),("method/layers","usedIn","application/try-1"),("concept/form-cast-shadow","usedIn","application/try-2"),("concept/fold-types","usedIn","application/try-3"),("concept/latent-space","usedIn","application/try-4"),("method/prompt-assembly","usedIn","application/try-5"),("method/diagnosis","usedIn","application/try-6"),("concept/simplify-shapes","motivates","concept/contour-rings"),("concept/contour-rings","motivates","concept/turnaround"),("concept/turnaround","motivates","concept/foreshortening"),
  ("concept/foreshortening","motivates","method/layers"),("concept/simplify-shapes","motivates","concept/lambert"),("concept/lambert","motivates","concept/form-cast-shadow"),
  ("concept/form-cast-shadow","motivates","concept/island-shadow"),("concept/island-shadow","motivates","concept/penumbra"),("concept/penumbra","motivates","method/render-passes"),
  ("concept/fold-types","motivates","concept/fold-spots"),("concept/fold-spots","motivates","concept/flow-tension"),("concept/flow-tension","motivates","concept/bend-excess"),("concept/bend-excess","motivates","method/cloth-sim"),
@@ -340,7 +373,7 @@ def build_part(P):
     s = head(t, P["desc"], P["og"], P["file"])
     navl = [(f"#{x['id']}", f"{k+1}단계") for k, x in enumerate(P["steps"])]
     if P.get("fails"): navl += [("#fails", "실패 8종")]
-    navl += [("#try", "만들어 보기"), ("#judge", "평가"), ("#sum", "정리"), (P["next"][0], "다음 →")]
+    navl += [("#try", "만들어 보기"), ("#ex", "연습 과제"), ("#judge", "평가"), ("#sum", "정리"), (P["next"][0], "다음 →")]
     s += nav(navl)
     s += cover(P["cover_key"], P["cover_cap"], P["cover_cast"])
     s += f"""<header class="hero"><div class="wrap"><span class="kicker">{E(P['kicker'])}</span><h1>{E(P['title'])}</h1><p class="lead">{E(P['lead'])}</p>
@@ -355,7 +388,7 @@ def build_part(P):
         s += "".join(failcard(f) for f in P["fails"])
         d = P["drift"]
         s += f'<div class="failcard" id="drift"><h3>{E(d["title"])}</h3>' + "".join(f"<p>{E(x)}</p>" for x in d["body"]) + '<p><span class="chip">다시 볼 원리</span><a href="04_ai_learns.html#s2">4부 2단계 잠재공간</a></p></div></div></section>'
-    s += tryit(P["no"]) + judge(P["judge"]) + summary(P) + outro(P)
+    s += tryit(P["no"]) + exercises(P["no"]) + judge(P["judge"]) + summary(P) + outro(P)
     s += kg_block(P["file"].replace(".html", ""), [P["file"]])
     s += footer()
     open(os.path.join(ROOT, P["file"]), "w").write(s)
@@ -394,6 +427,7 @@ def build_index():
 <li><b>그림 원리만</b>: 1~3부. AI 이야기 없이 손 그림의 원리만 봅니다.</li>
 <li><b>AI 그림만 급하다면</b>: 5부 → 6부 → 7부. 막히는 낱말은 각 단계의 링크로 1~3부를 되짚어 보세요.</li>
 <li>각 부 끝의 <b>프롬프트로 직접 만들어 보기</b>에서는 복사한 프롬프트로 그림 도구에서 실제 그림을 만들고, 점검표로 확인합니다. 페이지에는 같은 프롬프트로 실제로 만든 결과 그림이 함께 있습니다.</li>
+<li>이어서 <b>연습 과제</b> 두 개에서 그 그림을 출발점으로 문장 하나만 바꿔 원리를 확인합니다. 순서·성공 기준·잘 안 될 때를 자세히 적었고, 예상 결과 그림도 함께 있습니다.</li>
 <li>각 부 끝의 <b>평가단 채점</b>은 이야기 속 예시 점수입니다. 확인 퀴즈와 실전 연습장 미션으로 스스로 점검하세요.</li></ul></div></div></section>
 <section id="parts"><div class="wrap"><h2>편 목록</h2>
 <p class="muted">모델은 하루·시아·모아, 화가는 주판봇과 초파리, 평가단은 X1·X2·X3, 해설은 박사입니다. 부마다 두 화가가 겨루고 평가단이 점수를 매깁니다.</p>

@@ -1,0 +1,13 @@
+order,conversation,file,start_image,page,ratio,what,status
+1,E01,p1_ex1_side,p1_try_step1,01_structure.html#ex,2:3,마네킹을 옆으로 돌려 두께 확인하기,
+2,E01,p1_ex2_stripes,p1_try_step2,01_structure.html#ex,2:3,줄무늬 후드티로 원근 간격 보기,
+3,E01,p2_ex1_right,p2_try_left,02_light.html#ex,2:3,광원을 오른쪽 위로 옮기기,
+4,E01,p2_ex2_jump,p2_try_left,02_light.html#ex,2:3,살짝 뛰어올라 그림자 흐림 보기,
+5,E02,p3_ex1_bend,p3_try_still,03_folds.html#ex,2:3,팔을 더 굽혀 주름 늘리기,
+6,E02,p3_ex2_pinch,p3_try_still,03_folds.html#ex,2:3,치맛자락을 잡아 새 접점 만들기,
+7,E02,p5_ex1_photo,p5_try_assembled,05_pixel_to_real.html#ex,2:3,같은 장면을 실사풍으로 옮기기,
+8,E03,p4_ex1_partial,p4_try_name_only,04_ai_learns.html#ex,2:3,특징을 두 개만 더하기,
+9,E03,p4_ex2_watercolor,p4_try_features,04_ai_learns.html#ex,2:3,화풍 낱말 하나만 바꾸기,
+10,E04,p6_ex1_mirror,p6_try_fix_f4,06_failure_lab.html#ex,2:3,일부러 뒤집어 놓고 진단하기,
+11,E04,p6_ex2_twolights,p6_try_fix_f3,06_failure_lab.html#ex,2:3,광원을 둘로 늘려 그림자 세기,
+12,E05,p5_ex2_onechange,p5_try_group,05_pixel_to_real.html#ex,16:9,세 사람 중 한 명만 바꾸기,

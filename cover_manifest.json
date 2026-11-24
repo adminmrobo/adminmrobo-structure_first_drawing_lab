@@ -1126,84 +1126,84 @@
   {
    "file": "p1_ex1_side",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E01",
    "ratio": "2:3"
   },
   {
    "file": "p1_ex2_stripes",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E01",
    "ratio": "2:3"
   },
   {
    "file": "p2_ex1_right",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E01",
    "ratio": "2:3"
   },
   {
    "file": "p2_ex2_jump",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E01",
    "ratio": "2:3"
   },
   {
    "file": "p3_ex1_bend",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E02",
    "ratio": "2:3"
   },
   {
    "file": "p3_ex2_pinch",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E02",
    "ratio": "2:3"
   },
   {
    "file": "p5_ex1_photo",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E02",
    "ratio": "2:3"
   },
   {
    "file": "p4_ex1_partial",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E03",
    "ratio": "2:3"
   },
   {
    "file": "p4_ex2_watercolor",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E03",
    "ratio": "2:3"
   },
   {
    "file": "p6_ex1_mirror",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E04",
    "ratio": "2:3"
   },
   {
    "file": "p6_ex2_twolights",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E04",
    "ratio": "2:3"
   },
   {
    "file": "p5_ex2_onechange",
    "role": "exercise",
-   "status": "requested",
+   "status": "done",
    "request": "E05",
    "ratio": "16:9"
   }

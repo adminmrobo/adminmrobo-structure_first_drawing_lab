@@ -210,15 +210,16 @@ def exercises(no, pre=""):
         kind = "바꿀 문장 (출발 그림에 이어서 넣습니다)" if same else "새 대화에 넣을 문장"
         cards += f"""<div class="failcard excard" id="ex{no}-{i}"><h3>연습 {no}-{i} · {E(e['title'])}</h3>
 <p>{E(e['why'])}</p>
-<div class="exgrid"><div><div class="artrow"{' style="grid-template-columns:1fr"' if e['ar']=='16/9' else ''}>{art(e['start'], '출발 그림 — 직접 만들어 보기에서 만든 그림', '2/3' if e['ar']=='2/3' else '16/9', '출발 그림', pre=pre)}{art(e['key'], e['alt'], e['ar'], '예상 결과 — 이 문장으로 실제로 만든 예시', pre=pre)}</div></div>
+<div class="exgrid"><div><div class="artrow"{' style="grid-template-columns:1fr"' if e['ar']=='16/9' else ''}>{art(e['start'], '출발 그림 — 직접 만들어 보기에서 만든 그림', '2/3' if e['ar']=='2/3' else '16/9', '출발 그림', pre=pre)}{art(e['key'], e['alt'], e['ar'], '실제 결과 — 이 문장을 그대로 넣은 첫 결과', pre=pre)}</div></div>
 <div><div class="promptbox" style="margin-top:0"><b>{kind}</b><pre>{E(e['change'])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span><p class="hint" style="margin:8px 0 0"><b>이 문장의 뜻</b> — {E(e['ko'])}</p></div>
 <h4>순서</h4><ol>{steps}</ol>
 <h4>이렇게 보이면 성공</h4><ul>{exp}</ul>
+{'<div class="limit" style="background:#f3f8ff;border-color:#9bb8e0"><b>실제로 해 보니</b> — '+E(e['actual'])+'</div>' if has_img(e['key']) and e.get('actual') else ''}
 <div class="limit"><b>잘 안 될 때</b> — {md(e['trouble'])}</div>
 <p><span class="chip">다시 볼 원리</span><a href="{e['link'][0]}">{E(e['link'][1])}</a></p></div></div></div>"""
     return f"""<section class="room" id="ex"><div class="wrap"><div class="roomno">{no}부 · 연습 과제</div>
 <h2>연습 과제 — 원리 하나만 바꿔 보기</h2>
-<p class="muted">'직접 만들어 보기'에서 나온 그림을 출발 그림으로 삼아, 문장 하나로 원리 하나만 바꿉니다. 한 번에 하나만 바꿔야 무엇 때문에 달라졌는지 알 수 있습니다. 예상 결과 그림은 같은 문장으로 실제로 만든 예시이며, 여러분의 결과는 조금씩 다를 수 있습니다.</p>
+<p class="muted">'직접 만들어 보기'에서 나온 그림을 출발 그림으로 삼아, 문장 하나로 원리 하나만 바꿉니다. 한 번에 하나만 바꿔야 무엇 때문에 달라졌는지 알 수 있습니다. 오른쪽 그림은 같은 문장을 고치지 않고 넣어 얻은 첫 결과이며, 여러분의 결과는 조금씩 다를 수 있습니다. 예상과 달랐던 점도 '실제로 해 보니'에 그대로 적었습니다.</p>
 {talk([("doctor","e07","한 번에 두 가지를 바꾸면 무엇 때문에 달라졌는지 알 수 없다. 바꿀 문장은 하나만 넣자."),("fruitfly","e09","결과가 예상과 다르면 그게 더 좋은 공부야. 어디가 다른지 점검표로 찾아봐.")], pre)}
 {cards}</div></section>
 """

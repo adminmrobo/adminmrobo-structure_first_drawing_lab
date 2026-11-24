@@ -204,8 +204,13 @@ def retry_box(e, pre=""):
     rk = e["key"] + "_retry"
     img = art(rk, r["alt"], e["ar"], "다시 시도한 결과 — 고친 문장을 같은 대화에 이어서 넣은 결과", pre=pre) if has_img(rk) else ""
     act = f'<p style="margin:10px 0 0"><b>다시 해 보니</b> — {E(r["actual"])}</p>' if has_img(rk) else ""
+    out = ""
+    r2 = e.get("retry2")
+    if r2 and has_img(rk + "2"):
+        out = f"""<div class="promptbox retrybox"><b>두 번째 다시 시도 — {E(r2['how'])}</b><pre>{E(r2['prompt'])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span>
+<div class="retrygrid">{art(rk + "2", r2["alt"], e["ar"], "두 번째 다시 시도한 결과", pre=pre)}<div><p style="margin:10px 0 0"><b>다시 해 보니</b> — {E(r2["actual"])}</p></div></div></div>"""
     return f"""<div class="promptbox retrybox"><b>다시 시도 — {E(r['how'])}</b><pre>{E(r['prompt'])}</pre><button type="button" class="btn copybtn">복사하기</button> <span class="hint"></span>
-<div class="retrygrid">{img}<div>{act}</div></div></div>"""
+<div class="retrygrid">{img}<div>{act}</div></div></div>""" + out
 
 def exercises(no, pre=""):
     L = EX.get(no)

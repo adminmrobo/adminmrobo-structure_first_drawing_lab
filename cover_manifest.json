@@ -1230,6 +1230,18 @@
    "role": "exercise_retry",
    "status": "done",
    "request": "R4"
+  },
+  {
+   "file": "p1_ex2_stripes_retry2",
+   "role": "exercise_retry",
+   "status": "done",
+   "request": "R5"
+  },
+  {
+   "file": "p3_ex2_pinch_retry2",
+   "role": "exercise_retry",
+   "status": "done",
+   "request": "R5"
   }
  ],
  "updated": "2026-11-23"

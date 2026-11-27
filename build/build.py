@@ -462,7 +462,7 @@ def build_index():
 <p class="muted" style="margin-top:12px">기초 개념을 먼저 보고 싶다면: <a href="{RENDER}">AI 렌더링 연구실(비지도학습 → 렌더링 → DLSS)</a> · <a href="{FISH}">비지도학습 물고기 연구실</a></p></div></section>
 <section id="cast"><div class="wrap"><h2>등장인물</h2><div class="cast-grid">{''.join(f'<div class="who">{face(k, "e01" if k in ("haru","sia","moa") else "e13")}<b>{E(CH[k][0])}</b><span>{E(CH[k][1])}</span></div>' for k in ["doctor","haru","sia","moa","jupanbot","fruitfly","x1","x2","x3"])}</div></div></section>
 <section id="source"><div class="wrap"><h2>원리와 출처</h2>
-<p>1~3부의 그리기 원리(접점·힘·중력으로 생기는 주름, 그림자의 종류, 도형으로 구조 잡기)는 일반적인 드로잉 원리이며, 다테 나오토의 작법서 『デジタルツールで描く！服のシワと影の描き方』(マイナビ) 1장 기본편을 참고해 정리했습니다. 책의 그림·문장·도식은 옮기지 않았고, 연구실 캐릭터와 직접 움직이는 실험으로 새로 구성했습니다.</p>
+<p>1~3부의 그리기 원리(접점·힘·중력으로 생기는 주름, 그림자의 종류, 도형으로 구조 잡기)는 일반적인 드로잉 원리이며, 다테 나오토의 작법서 『デジタルツールで描く！服のシワと影の描き方』(マイナビ) 1장 기본편을 참고해 정리했습니다.</p>
 <p>4~5부의 AI 원리는 확산 모델·안내 강도·원본 반영 강도·조건 가이드 논문을 바탕으로 쉽게 풀었습니다(아래 출처). 그림 속 그림은 Genspark로 만들 예정이며, 그림이 오기 전에는 '그림 준비 중' 자리로 둡니다. 페이지는 그림 없이도 모든 실험이 동작합니다.</p></div></section>
 """
     s += kg_block("index", [P["file"] for P in PARTS] + ["practice/index.html"])
